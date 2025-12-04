@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>INTA — Ilocos Norte Tourism Assistant</title>
+    <style>
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <!-- Redesigned header with improved branding -->
+    <header>
+      <div class="header-content">
+        <div class="logo-section">
+          <img
+            src="icon.png"
+            alt="INTA"
+            class="logo"
+          />
+          <div class="header-text">
+            <h1>INTA</h1>
+            <p class="tagline">Ilocos Norte Tourism Assistant</p>
+          </div>
+        </div>
+        <p class="subtitle">Your AI-Powered Travel Guide</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="grid">
+        <!-- Left column: Planner + results -->
+        <div class="left-column">
+          <!-- Redesigned trip planner card with better layout -->
+          <section class="card trip-planner-card">
+            <h2 class="card-title">Trip Planner</h2>
+            <p class="helper-text">
+              Step 1: Pick an interest. Step 2: Choose your starting city. Step 3: Enter your available time and click Get Recommendations.
+            </p>
+            <div class="form-group">
+              <label for="interestSelect" class="form-label">Interest</label>
+              <select id="interestSelect" class="form-input"></select>
+            </div>
+            <div class="form-group">
+              <label for="locationSelect" class="form-label">Location</label>
+              <select id="locationSelect" class="form-input"></select>
+            </div>
+            <div class="form-group">
+              <label for="timeInput" class="form-label">Time (hours)</label>
+              <input
+                id="timeInput"
+                type="number"
+                min="0.25"
+                step="0.25"
+                placeholder="2"
+                class="form-input"
+              />
+            </div>
+            <button id="recommendBtn" class="btn btn-primary btn-full">
+              Get Recommendations
+            </button>
+          </section>
+
+          <!-- Redesigned nearby cities card -->
+          <section class="card">
+            <h2 class="card-title">Find Nearby Cities</h2>
+            <div class="form-group">
+              <label for="bfsSelect" class="form-label">Start from</label>
+              <select id="bfsSelect" class="form-input"></select>
+            </div>
+            <button id="bfsBtn" class="btn btn-secondary btn-full">
+              Find Nearest
+            </button>
+          </section>
+
+          <!-- Redesigned results card with empty state -->
+          <section class="card">
+            <h2 class="card-title">Your Results</h2>
+            <div id="resultsArea" class="results-area">
+              <div class="empty-state">
+                <div class="empty-icon">📋</div>
+                <p>No results yet. Use the planner or chat to get started!</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right column: Chat UI -->
+        <aside class="right-column">
+          <section class="card chat-card">
+            <h2 class="card-title">Chat with INTA</h2>
+            <div id="chatWindow" class="chat-window" aria-live="polite">
+              <!-- Initial bot greeting -->
+              <div class="chat-message chat-bot">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                  <p>Hi! Ask me about Ilocos Norte attractions. Try "cheap food in Batac"</p>
+                  <span class="message-time">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Enhanced input area with flex layout and send button with icon -->
+            <div class="chat-input-wrapper">
+              <input
+                id="chatInput"
+                type="text"
+                placeholder="Type your question..."
+                class="chat-input"
+              />
+              <button id="chatSendBtn" class="btn btn-primary btn-small">
+                ➤
+              </button>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <footer>
+        <p>Safe travels! — INTA Team</p>
+      </footer>
+    </main>
+
+    <!-- SCRIPTS: make sure these paths exist in your project -->
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/ruleEngine.js"></script>
+    <script src="./scripts/chatBot.js"></script>
+    <script src="./scripts/bfs.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
